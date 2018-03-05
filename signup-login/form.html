@@ -1,0 +1,127 @@
+<html>
+<head>
+<script language="javascript">
+function register()
+{
+	var status=false;
+	var count=0;
+	var x = document.getElementById("t1").value;
+	var y = document.getElementById("t2").value;
+	var z = document.getElementById("t3").value;
+	var w = document.getElementById("t4").value;
+	var e = document.getElementById("t5").value;
+	var atposition=e.indexOf("@");
+	var dotposition=e.lastIndexOf(".");
+	if(x.length<1)
+	{
+		document.getElementById("loc1").innerHTML="&nbsp;&nbsp;<img src='http://localhost/student/unchecked.jpeg'> incorrect";
+		status=false;
+	}
+	else
+	{
+		document.getElementById("loc1").innerHTML="&nbsp;&nbsp;<img src='http://localhost/student/checked.jpeg'> correct";
+		count++; 
+	}
+	if(isNaN(y))
+	{
+		document.getElementById("loc2").innerHTML="&nbsp;&nbsp;<img src='http://localhost/student/unchecked.jpeg'> incorrect";
+		status=false;
+	}
+	else
+	{
+		document.getElementById("loc2").innerHTML="&nbsp;&nbsp;<img src='http://localhost/student/checked.jpeg'> correct";
+		count++;
+	}
+	if(z.length<6)
+	{
+		document.getElementById("loc3").innerHTML="&nbsp;&nbsp;<img src='http://localhost/student/unchecked.jpeg'> incorrect";
+		status=false;
+	}
+	else
+	{
+		document.getElementById("loc3").innerHTML="&nbsp;&nbsp;<img src='http://localhost/student/checked.jpeg'> correct";
+		count++;
+	}
+	if(w!=z)
+	{
+		document.getElementById("loc4").innerHTML="&nbsp;&nbsp;<img src='http://localhost/student/unchecked.jpeg'> password did not match";
+		status=false;
+	}
+	else
+	{
+		document.getElementById("loc4").innerHTML="&nbsp;&nbsp;<img src='http://localhost/student/checked.jpeg'> correct";
+		count++;
+	}
+	if(atposition<1 || dotposition<atposition+2 || dotposition+2>=e.length)
+	{
+		document.getElementById("loc5").innerHTML="&nbsp;&nbsp;<img src='http://localhost/student/unchecked.jpeg'> incorrect"; 
+		status=false;
+	}
+	else
+	{
+		document.getElementById("loc5").innerHTML="&nbsp;&nbsp;<img src='http://localhost/student/checked.jpeg'> correct";
+		count++;
+	}
+	if(count==5)
+	status=true;
+	return status;
+}
+</script>
+<style>
+    
+        *{margin: 0; padding: 0;}
+        body{background-image:url("file:///C:/Users/Dell/Desktop/index.jpg"); font-family: sans-serif;}
+        
+        .form-wrap{ width: 500px; background: #3e3d3d; opacity:0.85; padding: 40px 20px; box-sizing: border-box; position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%);}
+        h1{text-align: center; color: #fff; font-weight: normal; margin-bottom: 20px;}
+        
+        input{width: 200%; background: none; background-color:#white; border: 1px solid #fff; border-radius: 5px; padding: 6px 15px; box-sizing: border-box; margin-bottom: 20px; font-size: 16px; color: #fff;}
+        
+        input[type="submit"]{ width:100%; background: #bac675; border: 0; cursor: pointer; color: #3e3d3d;}
+        input[type="submit"]:hover{ background: #a4b15c; transition: .6s;}
+        
+	 input[type="reset"]{ width:100%; background: #bac675; border: 0; cursor: pointer; color: #3e3d3d;}
+        input[type="reset"]:hover{ background: #a4b15c; transition: .6s;}
+        ::placeholder{color: #fff;}
+    
+    </style>
+</head>
+<body>
+<center>
+<div class = "form-wrap">
+<form name="form1" method="post" action="http://localhost/student/sign1.php" onsubmit="return register();">
+<h1>STUDENT REGISTRATION</h1>
+<table>
+<tr><td><input type="text" name="text1" placeholder="Enter name" id="t1"/><td><span id="loc1"></span></tr>
+<tr>
+<tr>
+<tr><td><input type="text" name="text2" placeholder="Enter number" id="t2"/><td><span id="loc2"></span>
+<tr>
+<tr>
+<tr><td><input type="password" name="pass1" placeholder="Enter password" id="t3"/><td><span id="loc3"></span></tr>
+<tr>
+<tr>
+<tr><td><input type="password" name="pass2" placeholder="Confirm password" id="t4"/><td><span id="loc4"></span>
+<tr>
+<tr>
+<tr><td><input type="text" name="email" placeholder="Enter email" id="t5"/><td><span id="loc5"></span></tr>
+<tr>
+<tr>
+<tr><td>select stream : <td><select name="menu" id="id1">
+<option>1.Computer Science</option>
+<option>2.Information Technology</option>
+<option>3.Electronics And Communication</option>
+<option>4.Civil</option>
+<tr>
+<tr>
+</select>
+</tr>
+</table>
+<input type="submit" value="Register"/>
+<input type="reset" value="Reset"/>
+<p>if already registered please <a href="http://localhost/student/signin.html">click here</a> to login</p> 
+</form>
+</div>
+</center>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<html>
+<head>
+<script language="javascript">
+function validate()
+{
+	var status=false;
+	var count=0;
+	var x = document.form2.email.value;
+	var y = document.form2.pass1.value;
+	var atposition = x.indexOf("@");
+	var dotposition =  x.lastIndexOf(".");
+	if(atposition<1 || dotposition<atposition+2 || dotposition+2>=x.length)
+	{		
+		document.getElementById("em").innerHTML="&nbsp;&nbsp;<img src='http://localhost/student/unchecked.jpeg'> incorrect";
+		status=false;
+	}
+	else
+	count++;
+	if(y.length<6)
+	{		
+		document.getElementById("pass1").innerHTML="&nbsp;&nbsp;<img src='http://localhost/student/unchecked.jpeg'> incorrect";
+		status=false;
+	}
+	else
+	count++;
+	if(count==2)
+	status=true;
+	return status;
+}
+</script >
+<style type="text/css">
+ *{margin: 0; padding: 0;}
+        body{background-image:url("file:///C:/Users/Dell/Desktop/index.jpg"); font-family: sans-serif;}
+        
+        .home{ width: 500px; background: #3e3d3d; opacity:0.85; padding: 40px 20px; box-sizing: border-box; position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%);}
+        h1{text-align: center; color: #fff; font-weight: normal; margin-bottom: 20px;}
+        
+        input{width: 100%; background: none; background-color:#white; border: 1px solid #fff; border-radius: 5px; padding: 6px 15px; box-sizing: border-box; margin-bottom: 20px; font-size: 16px; color: #fff;}
+        
+        input[type="submit"]{ width:100%; background: #bac675; border: 0; cursor: pointer; color: #3e3d3d;}
+        input[type="submit"]:hover{ background: #a4b15c; transition: .6s;}
+        
+	 input[type="reset"]{ width:100%; background: #bac675; border: 0; cursor: pointer; color: #3e3d3d;}
+        input[type="reset"]:hover{ background: #a4b15c; transition: .6s;}
+        ::placeholder{color: #fff;}
+    
+</style>
+</head>
+<body>
+<div class="home">
+<h1>STUDENT LOGIN</h1>
+<form id="" name="form2" method="post" action="http://localhost/student/signselect.php" onsubmit="return validate()">
+<input type="text" placeholder="Enter email" name="email"><span id ="em"></span><br>
+<input type="password" placeholder="Enter password" name="pass1"><span id="pass1"></span><br>
+<input type="submit" value="Sign in">
+</form>
+</div>
+</body>
+</html>
